@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>💓VISHAL🚨RAVAN😁</title>
+  <!-- Font Awesome for premium icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Bangers&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-bg: linear-gradient(to bottom right, #2b1055, #7597de);
+      --dark-bg: linear-gradient(to bottom right, #0a043c, #000000);
+      --text-color: white;
+      --dark-text: #e0e0e0;
+      --header-bg: rgba(0, 0, 0, 0.3);
+      --dark-header: rgba(0, 0, 0, 0.7);
+      --button-bg: #ff7f50;
+      --dark-button: #ff6347;
+      --input-bg: white;
+      --dark-input: #333;
+      --accent-color: #00ffff;
+      --shadow: 0 4px 10px rgba(0,0,0,0.5);
+      --transition: all 0.3s ease;
+      --control-bg: rgba(0, 0, 0, 0.7);
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-color);
+      transition: var(--transition);
+      min-height: 100vh;
+    }
+    
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    
+    body.dark-mode header {
+      background: var(--dark-header);
+    }
+    
+    body.dark-mode .controls button {
+      background: var(--dark-button);
+    }
+    
+    body.dark-mode input[type="file"], 
+    body.dark-mode input[type="text"] {
+      background: var(--dark-input);
+      color: white;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: var(--header-bg);
+      font-size: 20px;
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .player-title {
+      font-family: 'Bangers', cursive;
+      font-size: 1.8rem;
+      background: linear-gradient(to right, #ff7f50, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
+    }
+    
+    .toggle-mode {
+      cursor: pointer;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    
+    .toggle-mode:hover {
+      transform: scale(1.1);
+    }
+    
+    .player-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-height: 70vh;
+      background: black;
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+    
+    .video-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--control-bg);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.2s ease;
+      z-index: 10;
+    }
+    
+    .video-wrapper:hover .video-controls,
+    .video-wrapper:focus-within .video-controls {
+      transform: translateY(0);
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.2);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: var(--accent-color);
+      width: 0%;
+      position: relative;
+    }
+    
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    .progress-container:hover .progress-bar::after {
+      opacity: 1;
+    }
+    
+    .control-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .left-controls, .right-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .center-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .controls button {
+      margin: 0;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 14px;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .controls button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .controls button.play-pause {
+      background: var(--button-bg);
+      width: 32px;
+      height: 32px;
+    }
+    
+    .controls button.play-pause:hover {
+      transform: scale(1.1);
+    }
+    
+    .controls button.nav-video {
+      font-size: 18px;
+    }
+    
+    .time-display {
+      font-size: 14px;
+      white-space: nowrap;
+      margin: 0 5px;
+    }
+    
+    /* Volume and Brightness Controls - Always Visible */
+    .volume-container, .brightness-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .volume-slider, .brightness-slider {
+      width: 80px;
+      margin-left: 5px;
+      opacity: 1; /* Always visible */
+      transition: opacity 0.2s;
+    }
+    
+    /* Control indicators */
+    .control-indicator {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    .volume-container:hover .volume-indicator,
+    .brightness-container:hover .brightness-indicator {
+      opacity: 1;
+    }
+    
+    .speed-control {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .speed-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    
+    .speed-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .speed-options {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      background: var(--control-bg);
+      border-radius: 5px;
+      padding: 5px;
+      display: none;
+      min-width: 80px;
+      z-index: 100;
+    }
+    
+    .speed-control:hover .speed-options {
+      display: block;
+    }
+    
+    .speed-option {
+      display: block;
+      padding: 5px 10px;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 3px;
+    }
+    
+    .speed-option:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .speed-option.active {
+      background: var(--button-bg);
+    }
+    
+    .list-section {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 15px;
+      justify-content: center;
+    }
+    
+    .list {
+      flex: 1;
+      min-width: 250px;
+      max-width: 400px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 15px;
+      transition: var(--transition);
+    }
+    
+    .list:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .list h3 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+      display: inline-block;
+      font-family: 'Pacifico', cursive;
+    }
+    
+    a {
+      display: block;
+      margin: 8px 0;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      padding: 5px;
+      border-radius: 5px;
+    }
+    
+    a:hover {
+      background: rgba(0,255,255,0.1);
+      padding-left: 10px;
+    }
+    
+    .video-title-container {
+      text-align: center;
+      margin: 15px 0;
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .video-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .video-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+    
+    footer {
+      text-align: center;
+      margin: 30px 0 10px;
+      color: #ddd;
+      font-size: 14px;
+      padding: 15px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    
+    input[type="file"], input[type="text"] {
+      margin: 10px;
+      padding: 12px 15px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+      border: none;
+      transition: var(--transition);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    input[type="file"]:focus, 
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--accent-color);
+    }
+    
+    .search-container {
+      position: relative;
+      display: inline-block;
+      width: 80%;
+      max-width: 500px;
+    }
+    
+    .search-container input {
+      padding-left: 35px;
+      width: 100%;
+    }
+    
+    .search-container::before {
+      content: "🔍";
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    
+    .file-input-container {
+      position: relative;
+      display: inline-block;
+      width: 80%;
+      max-width: 500px;
+    }
+    
+    .file-input-label {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    
+    /* Fullscreen styles */
+    .video-wrapper.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      max-height: 100vh;
+    }
+    
+    .video-wrapper.fullscreen video {
+      height: 100%;
+    }
+    
+    .video-wrapper.fullscreen .video-controls {
+      bottom: 0;
+    }
+    
+    /* Landscape mode adjustments */
+    @media screen and (orientation: landscape) {
+      .video-wrapper {
+        max-height: 80vh;
+      }
+      .video-controls {
+        padding: 6px;
+      }
+      .controls button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        padding: 6px;
+      }
+      .controls button.play-pause {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+      .time-display {
+        font-size: 11px;
+      }
+      .volume-slider, .brightness-slider {
+        width: 50px;
+      }
+    }
+    
+    @media screen and (max-width: 800px) and (orientation: landscape) {
+      .video-wrapper {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+      .video-controls {
+        flex-direction: column;
+        padding: 4px 6px;
+      }
+      .control-buttons {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 4px;
+      }
+      .controls button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        padding: 4px;
+      }
+      .controls button.play-pause {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+      .time-display {
+        font-size: 10px;
+      }
+      .volume-slider, .brightness-slider {
+        width: 40px;
+      }
+      .speed-btn {
+        font-size: 12px;
+        padding: 4px 6px;
+      }
+      .speed-options {
+        min-width: 60px;
+        font-size: 12px;
+      }
+    }
+    
+    @media screen and (max-width: 850px) and (orientation: landscape) {
+      .control-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+      }
+      .controls button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        padding: 3px;
+      }
+      .controls button.play-pause {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+      .volume-slider, .brightness-slider {
+        width: 40px;
+      }
+      .time-display {
+        font-size: 10px;
+      }
+      .speed-btn, .speed-option {
+        font-size: 11px;
+      }
+      .video-controls {
+        padding: 6px 4px;
+      }
+    }
+    
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background: #ffffff;
+  color: black;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  overflow-y: auto;
+  max-height: 85%;
+  font-family: 'Poppins', sans-serif;
+}
+.step { margin-bottom: 20px; }
+.step img { width: 100%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.3); }
+.step-title { font-weight: bold; font-size: 17px; margin-bottom: 6px; color: #333; }
+.close-btn { float: right; font-size: 28px; font-weight: bold; color: red; cursor: pointer; }
+a { font-weight: bold !important; text-decoration: underline !important; }
+    
+  </style>
+</head>
+<body>
+  
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+  <span class="player-title">💓VISHAL🚨RAVAN😜</span>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <span class="toggle-mode" onclick="toggleMode()">
+      <i class="fas fa-moon"></i>
+    </span>
+    <button id="logoutBtn" onclick="logout()" style="display:none; background:#ff7f50; color:white; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-size:14px;">
+      Logout
+    </button>
+  </div>
+</header>
+
+  <div class="player-container">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 15px auto; max-width: 1000px; text-align: center;">
+      <div class="file-input-container" style="position: relative;">
+        <span class="file-input-label">
+          <i class="fas fa-folder"></i>
+        </span>
+        <input accept=".txt" id="txtFile" onchange="handleFile(event)" placeholder="Select playlist file" type="file"/>
+      </div>
+      <input id="directLink" placeholder="🔗 Paste video link to play directly" style="padding:12px; border-radius:5px; width:280px;" type="text"/>
+      <button onclick="playDirectLink()" style="padding:10px 15px; background:#ff7f50; color:white; border:none; border-radius:5px; cursor:pointer;">
+        <i class="fas fa-play"></i> Play Link
+      </button>
+      <button onclick="loadMyBatches()" style="padding:10px 15px; background:#00ffff; color:black; border:none; border-radius:5px; cursor:pointer;">
+        <i class="fas fa-folder-open"></i> My Batches
+      </button>
+      <select id="batchSelector" onchange="loadBatchFromFolder()" style="padding:8px; border-radius:5px; display:none;"></select>
+      <div class="search-container" style="width: 100%; max-width: 500px;">
+        <input id="searchInput" oninput="filterTitles()" placeholder="Search by Title" type="text"/>
+      </div>
+    </div>
+    <div class="video-title-container">
+      <h2 class="video-title" id="currentVideoTitle">Select a video to play</h2>
+      <div class="video-subtitle" id="currentVideoQuality"></div>
+    </div>
+    <div class="video-wrapper" id="videoWrapper">
+
+    <div style="text-align:center; margin:10px 0;">
+      <a id="playOnYTButton" href="#" target="_blank" style="display:none; background:#ff0000; color:white; padding:10px 15px; border-radius:5px; text-decoration:none; font-weight:bold;">
+        ▶️ Play on YouTube
+      </a>
+    </div>
+
+      <video id="videoPlayer"></video>
+      <div class="video-controls">
+        <div class="progress-container" onclick="seek(event)">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="control-buttons">
+          <div class="left-controls">
+            <button onclick="skip(-15)" title="Rewind 15s">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button class="play-pause" id="playPauseBtn" onclick="togglePlayPause()">
+              <i class="fas fa-play"></i>
+            </button>
+            <button onclick="skip(15)" title="Forward 15s">
+              <i class="fas fa-forward"></i>
+            </button>
+            <span class="time-display" id="timeDisplay">00:00 / 00:00</span>
+          </div>
+          <div class="right-controls">
+            <div class="speed-control">
+              <button class="speed-btn" title="Playback Speed">
+                <i class="fas fa-tachometer-alt"></i>
+              </button>
+              <div class="speed-options" id="speedOptions">
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(0.5)">0.5x</a>
+                <a class="speed-option active" href="#" onclick="setPlaybackSpeed(1)">1.0x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(1.5)">1.5x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(2)">2.0x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(2.5)">2.5x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(3)">3.0x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(3.5)">3.5x</a>
+                <a class="speed-option" href="#" onclick="setPlaybackSpeed(4)">4.0x</a>
+              </div>
+            </div>
+            <!-- Brightness Control -->
+            <div class="brightness-container">
+              <button title="Brightness">
+                <i class="fas fa-sun"></i>
+              </button>
+              <input class="brightness-slider" id="brightnessSlider" min="0.1" max="2" step="0.1" type="range" value="1" oninput="setBrightness(this.value)"/>
+              <span class="control-indicator brightness-indicator" id="brightnessValue">100%</span>
+            </div>
+            <!-- Volume Control -->
+            <div class="volume-container">
+              <button id="volumeBtn" onclick="toggleMute()" title="Mute">
+                <i class="fas fa-volume-high"></i>
+              </button>
+              <input class="volume-slider" id="volumeSlider" max="1" min="0" step="0.1" type="range" value="1" oninput="setVolume(this.value)"/>
+              <span class="control-indicator volume-indicator" id="volumeValue">100%</span>
+            </div>
+            <button id="fullscreenBtn" onclick="toggleFullscreen()" title="Fullscreen">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-section">
+      <div class="list" id="videoList">
+        <h3><i class="fas fa-film"></i> Videos</h3>
+      </div>
+      <div class="list" id="pdfList">
+        <h3><i class="fas fa-file-pdf"></i> PDFs</h3>
+      </div>
+    </div>
+  </div>
+  <footer>
+  <a href="javascript:void(0)" onclick="openModal()" style="color:#00ffff; display:block; margin-bottom:8px;">
+    📘 How To Use
+  </a>
+  
+  <span style="font-family: 'Pacifico', cursive;">Created with ❤️ by 💓VISHAL🚨RAVAN😜</span>
+  |
+  <a href="https://www.instagram.com/vishalravan09/
+" target="_blank">
+    <i class="fab fa-telegram"></i> Official INSTAGRAM
+  </a>
+  </footer>
+
+  <!-- Include CryptoJS for AES decryption -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  
+<script>
+  // Force auto logout on every refresh
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("currentUserInfo");
+  });
+</script>
+
+<script>
+    // Global variables
+    let currentIndex = 0;
+    let videoEntries = []; // Stores all video entries with complete titles
+    let isSeeking = false;
+    let currentSpeed = 1;
+    let currentBrightness = 1;
+    let currentVolume = 1;
+    let isYouTubePlayerActive = false;
+    let youtubePlayer = null;
+    let currentUser = null;
+
+    // DOM elements
+    const videoPlayer = document.getElementById('videoPlayer');
+    const brightnessSlider = document.getElementById('brightnessSlider');
+    const brightnessValue = document.getElementById('brightnessValue');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeValue = document.getElementById('volumeValue');
+
+    // Initialize the player
+    document.addEventListener('DOMContentLoaded', () => {
+      initPlayer();
+      initControls();
+      initEventListeners();
+      checkDarkModePreference();
+      checkLoginStatus();
+    });
+
+    // Check login status on page load
+    function checkLoginStatus() {
+      const isLogged = sessionStorage.getItem("loggedIn") === "true" || localStorage.getItem("loggedIn") === "true";
+      if (isLogged) {
+        document.getElementById('loginPopup').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'inline-block';
+      }
+    }
+
+    // Initialize video player
+    function initPlayer() {
+      videoPlayer.volume = currentVolume;
+      videoPlayer.style.filter = `brightness(${currentBrightness})`;
+      updateVolumeIndicator();
+      updateBrightnessIndicator();
+    }
+
+    // Initialize control elements
+    function initControls() {
+      // Set initial values for sliders
+      volumeSlider.value = currentVolume;
+      brightnessSlider.value = currentBrightness;
+    }
+
+    // Set up event listeners
+    function initEventListeners() {
+      // Video events
+      videoPlayer.addEventListener('timeupdate', updateProgress);
+      videoPlayer.addEventListener('click', () => {
+        showControlsTemporarily();
+      });
+      videoPlayer.addEventListener('play', () => {
+        document.getElementById('playPauseBtn').innerHTML = '<i class="fas fa-pause"></i>';
+      });
+      videoPlayer.addEventListener('pause', () => {
+        document.getElementById('playPauseBtn').innerHTML = '<i class="fas fa-play"></i>';
+      });
+      videoPlayer.addEventListener('volumechange', updateVolumeUI);
+      videoPlayer.addEventListener('ended', handleVideoEnd);
+
+      // Control events
+      document.addEventListener('keydown', handleKeyboardShortcuts);
+      document.addEventListener('fullscreenchange', handleFullscreenChange);
+
+      // Touch gestures for mobile
+      setupTouchGestures();
+    }
+
+    // Dark mode toggle
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const modeIcon = document.querySelector('.toggle-mode');
+      modeIcon.innerHTML = document.body.classList.contains("dark-mode") ? 
+        '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('darkMode', document.body.classList.contains("dark-mode"));
+    }
+
+    // Check for saved dark mode preference
+    function checkDarkModePreference() {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add("dark-mode");
+        document.querySelector('.toggle-mode').innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    }
+
+    // Skip forward/backward in video
+    function skip(seconds) {
+      if (isYouTubePlayerActive && youtubePlayer) {
+        const currentTime = youtubePlayer.getCurrentTime();
+        youtubePlayer.seekTo(currentTime + seconds, true);
+      } else {
+        videoPlayer.currentTime += seconds;
+      }
+    }
+
+    // Toggle play/pause
+    function togglePlayPause() {
+      if (isYouTubePlayerActive && youtubePlayer) {
+        if (youtubePlayer.getPlayerState() === 1) { // 1 = playing
+          youtubePlayer.pauseVideo();
+        } else {
+          youtubePlayer.playVideo();
+        }
+      } else {
+        if (videoPlayer.paused) {
+          videoPlayer.play().catch(e => {
+            showNotification("Playback failed. Please interact with the page first.");
+          });
+        } else {
+          videoPlayer.pause();
+        }
+      }
+    }
+
+    // Set playback speed
+    function setPlaybackSpeed(speed) {
+      currentSpeed = speed;
+      if (isYouTubePlayerActive && youtubePlayer) {
+        youtubePlayer.setPlaybackRate(speed);
+      } else {
+        videoPlayer.playbackRate = speed;
+      }
+      
+      // Update active speed option
+      document.querySelectorAll('.speed-option').forEach(option => {
+        option.classList.remove('active');
+        if (parseFloat(option.textContent) === speed) {
+          option.classList.add('active');
+        }
+      });
+    }
+
+    // Navigation between videos
+    function prevVideo() {
+      if (currentIndex > 0) {
+        loadVideoByIndex(--currentIndex);
+      } else {
+        showNotification("This is the first video");
+      }
+    }
+
+    function nextVideo() {
+      if (currentIndex < videoEntries.length - 1) {
+        loadVideoByIndex(++currentIndex);
+      } else {
+        showNotification("This is the last video");
+      }
+    }
+
+    function handleVideoEnd() {
+      if (currentIndex < videoEntries.length - 1) {
+        setTimeout(() => {
+          loadVideoByIndex(++currentIndex);
+        }, 1000);
+      }
+    }
+
+    // Show notification message
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.textContent = message;
+      notification.style.position = 'fixed';
+      notification.style.bottom = '20px';
+      notification.style.left = '50%';
+      notification.style.transform = 'translateX(-50%)';
+      notification.style.backgroundColor = 'rgba(0,0,0,0.7)';
+      notification.style.color = 'white';
+      notification.style.padding = '10px 20px';
+      notification.style.borderRadius = '5px';
+      notification.style.zIndex = '1000';
+      notification.style.animation = 'fadeIn 0.3s ease';
+      document.body.appendChild(notification);
+      setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+      }, 2000);
+    }
+
+    // Handle playlist file input
+    function handleFile(event) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const lines = e.target.result.split('\n');
+        const videoListElement = document.getElementById('videoList');
+        const pdfListElement = document.getElementById('pdfList');
+
+        videoEntries = [];
+        let pdfCount = 0; // Counter for PDFs
+
+        // Clear existing lists (we'll add headings after processing)
+        videoListElement.innerHTML = '';
+        pdfListElement.innerHTML = '';
+
+        lines.forEach((line, i) => {
+          line = line.trim();
+          if (!line) return;
+
+          // Extract full URL even if it has spaces
+          const fullUrlMatch = line.match(/https?:\/\/[^\s]+(?:\s[^\n]+)?/i);
+          if (!fullUrlMatch) return;
+
+          let rawLink = fullUrlMatch[0].trim();
+          let cleanLink = encodeURI(rawLink); // Encode spaces etc.
+
+          // Get title before the link
+          let titlePart = line.substring(0, line.indexOf(rawLink)).trim();
+          if (titlePart.endsWith(":")) {
+            titlePart = titlePart.slice(0, -1).trim();
+          }
+          const title = titlePart || `Video ${i + 1}`;
+
+          // Check if it's a PDF
+          if (/\.pdf(\?|#|$)/i.test(cleanLink)) {
+            pdfListElement.innerHTML += `<a href="${cleanLink}" target="_blank"><i class="fas fa-file-pdf"></i> ${title}</a>`;
+            pdfCount++;
+            return; // Skip adding to video
+          }
+
+          // Otherwise it's a video
+          videoEntries.push({
+            title: title,
+            link: cleanLink
+          });
+
+          videoListElement.innerHTML += `<a href="#" onclick="loadVideoByIndex(${videoEntries.length - 1})"><i class="fas fa-play-circle"></i> ${title}</a>`;
+        });
+
+        // Add headings with counts
+        videoListElement.innerHTML = `<h3><i class="fas fa-film"></i> Video: ${videoEntries.length}</h3>` + videoListElement.innerHTML;
+        pdfListElement.innerHTML = `<h3><i class="fas fa-file-pdf"></i> PDF: ${pdfCount}</h3>` + pdfListElement.innerHTML;
+
+        // Show notification
+        if (videoEntries.length > 0 || pdfCount > 0) {
+          showNotification(`Loaded ${videoEntries.length} videos & ${pdfCount} PDFs`);
+        }
+
+        // Auto-play first video if available
+        if (videoEntries.length > 0) {
+          loadVideoByIndex(0);
+        }
+      };
+
+      reader.readAsText(event.target.files[0]);
+    }
+
+    // Play direct link from input
+    function playDirectLink() {
+      const link = document.getElementById("directLink").value.trim();
+      if (!link) {
+        showNotification("Please enter a valid URL");
+        return;
+      }
+      
+      videoEntries.push({ 
+        title: "Direct Link Video",
+        link: link 
+      });
+      
+      currentIndex = videoEntries.length - 1;
+      loadVideoByIndex(currentIndex);
+      showNotification("Playing direct link");
+    }
+
+    // Load video by index
+    function loadVideoByIndex(index) {
+      currentIndex = index;
+      const entry = videoEntries[index];
+      
+      // Update title display
+      document.getElementById("currentVideoTitle").textContent = entry.title;
+      document.getElementById("currentVideoQuality").textContent = '';
+      
+      // Reset playback speed to 1x when changing videos
+      setPlaybackSpeed(1);
+      
+      // Load the video source
+      loadVideoSource(entry.link);
+    }
+
+    // Load video source (handles both regular videos and YouTube)
+    function loadVideoSource(src) {
+      const wrapper = document.getElementById("videoWrapper");
+      
+      // Clean up any existing YouTube player
+      if (isYouTubePlayerActive && youtubePlayer) {
+        wrapper.removeChild(wrapper.querySelector('iframe'));
+        isYouTubePlayerActive = false;
+        youtubePlayer = null;
+      }
+      
+      // Check if YouTube link
+      const isYT = src.includes("youtube.com") || src.includes("youtu.be");
+      
+      if (isYT) {
+        // Handle YouTube video
+        isYouTubePlayerActive = true;
+        const videoId = extractYouTubeId(src);
+
+        const ytBtn = document.getElementById("playOnYTButton");
+        if (ytBtn) {
+          if (isYT && videoId) {
+            ytBtn.href = "https://www.youtube.com/watch?v=" + videoId;
+            ytBtn.style.display = "inline-block";
+          } else {
+            ytBtn.style.display = "none";
+          }
+        }
+        
+        if (videoId) {
+          wrapper.innerHTML = `
+            <iframe id="youtubePlayer" width="100%" height="100%" 
+              src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=${window.location.origin}" 
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>`;
+          
+          // Load YouTube API if not already loaded
+          if (!window.YT) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+          }
+          
+          // Create YouTube player when API is ready
+          window.onYouTubeIframeAPIReady = function() {
+            youtubePlayer = new YT.Player('youtubePlayer', {
+              events: {
+                'onReady': onYouTubePlayerReady,
+                'onStateChange': onYouTubePlayerStateChange
+              }
+            });
+          };
+        }
+      } else {
+        // Handle regular video
+        const decrypted = decryptIfNeeded(src);
+        if (videoPlayer.src !== decrypted) {
+          videoPlayer.src = decrypted;
+          videoPlayer.load();
+          videoPlayer.play().then(() => {
+            document.getElementById('playPauseBtn').innerHTML = '<i class="fas fa-pause"></i>';
+          }).catch(e => {
+            showNotification("Error playing video. Click the play button to start.");
+          });
+        }
+        videoPlayer.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // YouTube player ready callback
+    function onYouTubePlayerReady(event) {
+      youtubePlayer = event.target;
+      youtubePlayer.setVolume(currentVolume * 100);
+      youtubePlayer.playVideo();
+    }
+
+    // YouTube player state change callback
+    function onYouTubePlayerStateChange(event) {
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      if (event.data === YT.PlayerState.PLAYING) {
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
+    }
+
+    // Extract YouTube video ID from URL
+    function extractYouTubeId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    // Filter video titles
+    function filterTitles() {
+      const filter = document.getElementById("searchInput").value.toLowerCase();
+      let visibleCount = 0;
+      
+      document.querySelectorAll(".list a").forEach(el => {
+        const isVisible = el.innerText.toLowerCase().includes(filter);
+        el.style.display = isVisible ? "block" : "none";
+        if (isVisible) visibleCount++;
+      });
+      
+      if (filter && visibleCount === 0) {
+        showNotification("No matching videos found");
+      }
+    }
+
+    // Decrypt encrypted links if needed
+    function decryptIfNeeded(link) {
+      if (!link.includes("*")) return link;
+      
+      try {
+        const [encryptedUrl, keyStr] = link.split("*");
+        const key = CryptoJS.enc.Utf8.parse('638udh3829162018');
+        const iv = CryptoJS.enc.Utf8.parse('fedcba9876543210');
+        
+        // Base64 decode the encrypted URL
+        const encryptedBytes = CryptoJS.enc.Base64.parse(encryptedUrl);
+        const encryptedData = CryptoJS.lib.WordArray.create(encryptedBytes.words, encryptedBytes.sigBytes);
+        
+        // Decrypt using AES-CBC
+        const decrypted = CryptoJS.AES.decrypt(
+          { ciphertext: encryptedData },
+          key,
+          { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
+        );
+        
+        // Convert to UTF-8 string
+        const decryptedUrl = decrypted.toString(CryptoJS.enc.Utf8);
+        
+        if (!decryptedUrl) {
+          console.error("Decryption failed - empty result");
+          return link;
+        }
+        
+        return decryptedUrl;
+      } catch (e) {
+        console.error("Decryption error:", e);
+        showNotification("Error decrypting video link");
+        return link;
+      }
+    }
+
+    // Update progress bar and time display
+    function updateProgress() {
+      const progressBar = document.getElementById('progressBar');
+      const timeDisplay = document.getElementById('timeDisplay');
+      
+      let currentTime, duration;
+      
+      if (isYouTubePlayerActive && youtubePlayer) {
+        currentTime = youtubePlayer.getCurrentTime();
+        duration = youtubePlayer.getDuration();
+      } else {
+        currentTime = videoPlayer.currentTime;
+        duration = videoPlayer.duration;
+      }
+      
+      if (duration) {
+        const percent = (currentTime / duration) * 100;
+        progressBar.style.width = percent + '%';
+        
+        // Update time display
+        timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+      }
+    }
+
+    // Format time as MM:SS
+    function formatTime(seconds) {
+      const hrs = Math.floor(seconds / 3600);
+      const mins = Math.floor((seconds % 3600) / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Seek to position in video
+    function seek(event) {
+      const progressContainer = event.currentTarget;
+      const rect = progressContainer.getBoundingClientRect();
+      const pos = (event.clientX - rect.left) / rect.width;
+      
+      if (isYouTubePlayerActive && youtubePlayer) {
+        youtubePlayer.seekTo(pos * youtubePlayer.getDuration(), true);
+      } else {
+        videoPlayer.currentTime = pos * videoPlayer.duration;
+      }
+    }
+
+    // Toggle mute
+    function toggleMute() {
+      if (isYouTubePlayerActive && youtubePlayer) {
+        if (youtubePlayer.isMuted()) {
+          youtubePlayer.unMute();
+          youtubePlayer.setVolume(currentVolume * 100);
+        } else {
+          youtubePlayer.mute();
+        }
+      } else {
+        videoPlayer.muted = !videoPlayer.muted;
+      }
+      updateVolumeUI();
+    }
+
+    // Update volume UI elements
+    function updateVolumeUI() {
+      const volumeBtn = document.getElementById('volumeBtn');
+      
+      if (isYouTubePlayerActive && youtubePlayer) {
+        currentVolume = youtubePlayer.isMuted() ? 0 : youtubePlayer.getVolume() / 100;
+      } else {
+        currentVolume = videoPlayer.muted ? 0 : videoPlayer.volume;
+      }
+      
+      volumeSlider.value = currentVolume;
+      
+      if (currentVolume == 0) {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+      } else if (currentVolume < 0.5) {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-low"></i>';
+      } else {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-high"></i>';
+      }
+      
+      updateVolumeIndicator();
+    }
+
+    // Set volume level
+    function setVolume(value) {
+      currentVolume = parseFloat(value);
+      
+      if (isYouTubePlayerActive && youtubePlayer) {
+        youtubePlayer.unMute();
+        youtubePlayer.setVolume(currentVolume * 100);
+      } else {
+        videoPlayer.muted = (currentVolume == 0);
+        videoPlayer.volume = currentVolume;
+      }
+      
+      updateVolumeUI();
+    }
+
+    // Set brightness level
+    function setBrightness(value) {
+      currentBrightness = parseFloat(value);
+      videoPlayer.style.filter = `brightness(${currentBrightness})`;
+      updateBrightnessIndicator();
+    }
+
+    // Update volume indicator
+    function updateVolumeIndicator() {
+      volumeValue.textContent = `${Math.round(currentVolume * 100)}%`;
+    }
+
+    // Update brightness indicator
+    function updateBrightnessIndicator() {
+      brightnessValue.textContent = `${Math.round(currentBrightness * 100)}%`;
+    }
+
+    // Toggle fullscreen mode
+    function toggleFullscreen() {
+      const wrapper = document.getElementById('videoWrapper');
+      const fullscreenBtn = document.getElementById('fullscreenBtn');
+      
+      if (!document.fullscreenElement) {
+        wrapper.classList.add('fullscreen');
+        wrapper.requestFullscreen().then(() => {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(err => console.log('Orientation lock failed:', err));
+          }
+        }).catch(err => {
+          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+        fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+        fullscreenBtn.title = 'Exit Fullscreen';
+      } else {
+        document.exitFullscreen().then(() => {
+          if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+          }
+        });
+        wrapper.classList.remove('fullscreen');
+        fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        fullscreenBtn.title = 'Fullscreen';
+      }
+    }
+
+    // Handle fullscreen change event
+    function handleFullscreenChange() {
+      const wrapper = document.getElementById('videoWrapper');
+      const fullscreenBtn = document.getElementById('fullscreenBtn');
+      
+      if (!document.fullscreenElement) {
+        wrapper.classList.remove('fullscreen');
+        fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        fullscreenBtn.title = 'Fullscreen';
+      }
+    }
+
+    // Keyboard shortcuts
+    function handleKeyboardShortcuts(e) {
+      if (!videoPlayer && !isYouTubePlayerActive) return;
+      
+      switch(e.key) {
+        case ' ':
+          togglePlayPause();
+          e.preventDefault();
+          break;
+        case 'ArrowLeft':
+          skip(-5);
+          break;
+        case 'ArrowRight':
+          skip(5);
+          break;
+        case 'ArrowUp':
+          setVolume(Math.min(1, currentVolume + 0.1));
+          break;
+        case 'ArrowDown':
+          setVolume(Math.max(0, currentVolume - 0.1));
+          break;
+        case 'm':
+          toggleMute();
+          break;
+        case 'f':
+          toggleFullscreen();
+          break;
+        case 'n':
+          nextVideo();
+          break;
+        case 'p':
+          prevVideo();
+          break;
+        case '>':
+          const newSpeed = Math.min(4, currentSpeed + 0.5);
+          setPlaybackSpeed(newSpeed);
+          break;
+        case '<':
+          const lowerSpeed = Math.max(0.5, currentSpeed - 0.5);
+          setPlaybackSpeed(lowerSpeed);
+          break;
+        case 'b':
+          // Brightness increase
+          const newBrightness = Math.min(2, currentBrightness + 0.1);
+          setBrightness(newBrightness);
+          brightnessSlider.value = newBrightness;
+          break;
+        case 'B':
+          // Brightness decrease (Shift+B)
+          const lowerBrightness = Math.max(0.1, currentBrightness - 0.1);
+          setBrightness(lowerBrightness);
+          brightnessSlider.value = lowerBrightness;
+          break;
+      }
+    }
+
+    // Set up touch gestures for mobile
+    function setupTouchGestures() {
+      const wrapper = document.getElementById('videoWrapper');
+      let startX, startY, currentY, gestureSide;
+      let isBrightnessGesture = false;
+      let isVolumeGesture = false;
+
+      wrapper.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        currentY = startY;
+        gestureSide = startX < window.innerWidth / 2 ? 'left' : 'right';
+      });
+
+      wrapper.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const deltaY = touch.clientY - currentY;
+        currentY = touch.clientY;
+
+        // Determine gesture type after some movement
+        if (Math.abs(touch.clientX - startX) < 20) { // Vertical swipe
+          if (gestureSide === 'left' && !isVolumeGesture) {
+            isBrightnessGesture = true;
+            // Brightness control
+            let newBrightness = currentBrightness - deltaY * 0.01;
+            newBrightness = Math.min(2, Math.max(0.1, newBrightness));
+            setBrightness(newBrightness);
+            brightnessSlider.value = newBrightness;
+          } else if (gestureSide === 'right' && !isBrightnessGesture) {
+            isVolumeGesture = true;
+            // Volume control
+            let newVolume = currentVolume - deltaY * 0.01;
+            newVolume = Math.min(1, Math.max(0, newVolume));
+            setVolume(newVolume);
+            volumeSlider.value = newVolume;
+          }
+        }
+      });
+
+      wrapper.addEventListener('touchend', () => {
+        isBrightnessGesture = false;
+        isVolumeGesture = false;
+      });
+    }
+
+    // Batch loading functionality
+    const batchFiles = [
+      "111 - Computer Spl 29 Yatendra Nigam Sir.txt",
+      "112 - Hindi Special-53.txt",
+      "113 - ARUN SIR - Reas Spl- 02 ( LIVE + VOD ).txt",
+      "114 - Reasoning Spl-45.txt",
+      "115 - UP SI 2025 Foundation Batch B 01 Rakesh Sir & Team.txt",
+      "116 - Reas Spl-26 (Live+VOD).txt",
+      "117 - Reas Spl-38 ( Live+VOD ).txt",
+      "118 - Eng Spl - 32 ( Live+VOD ).txt",
+      "119 - Maths Spl-43 Live Batch.txt",
+      "121 - FOUNDATION BATCH (COMPLETE ENGLISH).txt",
+      "122 - Delhi Police Constable 2024.txt",
+      "123 - Maths Spl-42 ( Pre+Mains ).txt",
+      "124 - Eng Spl - 37 (Live+VOD).txt",
+      "125 - GS Spl - 01 Live Batch.txt",
+      "126 - NTPC, ALP, Technician (Kranti Batch).txt",
+      "127 - Utkarsh - 4th Grade चतुर्थ श्रेणी कर्मचारी Batch.txt",
+      "128 - Utkarsh - Patwar Batch (Recorded From Jodhpur Classroom).txt",
+      "129 - Utkarsh - Lab Assistant {Paper - 1 & Paper 2 Science} Batch .txt",
+      "130 - NCERT Foundation (Hindi Medium) Batch.txt",
+      "131 - KHAN - NCERT Foundation Batch 2024.txt",
+      "132 - Polity Foundation by Khan Sir (Recorded).txt",
+      "133 - Physics Foundation By Khan Sir (Recorded).txt",
+      "134 - History Foundation By Khan Sir (Recorded).txt",
+      "135 - Biology Foundation By Khan Sir (Recorded).txt",
+      "136 - Economics Foundation By Khan Sir  (Recorded).txt",
+      "137 - Foundation (Recorded Batch) by Khan Sir.txt",
+      "138 - Eng Spl-36 ( Live+VOD ).txt",
+      "139 - SSC CGL TIER-I & II Foundation Batch-2025.txt",
+      "140 - RRB NTPC (CBT 01 & 02) Batch.txt",
+      "141 - Haryana GK Batch.txt",
+      "142 - Utkarsh - Rajasthan Police Constable Batch.txt",
+      "143 - GS Spl 17 (Live+VOD) .txt",
+      "144 - Physics Foundation 2024 by Khan Sir.txt",
+      "145 - Maths Spl-01 ( Pre+Mains ).txt",
+      "146 - GS Spl-12 ( Live+VOD ).txt",
+      "147 - RRB Group-D 2025.txt",
+      "148 - SSC Pratham-09.txt",
+      "149 - SSC Pratham Recorded-02.txt",
+      "150 - Railway Science ( Recorded Batch-01 ).txt",
+      "151 - SSC Pratham Batch-01.txt",
+      "152 - SSC Pratham ( Recorded Batch-01 ).txt",
+      "153 - UP SI Maths Special Batch with Aditya Ranjan Sir.txt",
+      "154 - DSSSB 2024 GP B-05.txt",
+      "155 - GK & GS Brahmastra 3.0 Batch.txt"
+      
+    ];
+
+    function loadMyBatches() {
+      const selector = document.getElementById('batchSelector');
+      selector.innerHTML = '<option disabled selected>Select a Batch</option>';
+      
+      batchFiles.forEach(file => {
+        // Extract batch ID from filename (first part before first hyphen)
+        const batchIdMatch = file.match(/^(\d+)/);
+        const batchId = batchIdMatch ? batchIdMatch[1] : null;
+        const nameWithoutExt = file.replace(/\.txt$/, "");
+        
+        const option = document.createElement("option");
+        option.value = file;
+        
+        if (batchId && currentUser && currentUser.batches.includes(batchId)) {
+          // User has access to this batch
+          option.textContent = nameWithoutExt;
+        } else {
+          // User doesn't have access
+          option.disabled = true;
+          option.textContent = "🔒 " + nameWithoutExt;
+        }
+        
+        selector.appendChild(option);
+      });
+      
+      selector.style.display = 'inline-block';
+    }
+
+    function loadBatchFromFolder() {
+      const fileName = document.getElementById("batchSelector").value;
+      if (!fileName || fileName === "Select a Batch") return;
+      
+      // Extract batch ID from filename (first part before first hyphen)
+      const batchIdMatch = fileName.match(/^(\d+)/);
+      const batchId = batchIdMatch ? batchIdMatch[1] : null;
+      
+      // Check if user has access to this batch
+      if (batchId && (!currentUser || !currentUser.batches.includes(batchId))) {
+        showNotification("❌ Batch Not Purchased");
+        return;
+      }
+      
+      fetch("Batches/" + fileName)
+        .then(response => {
+          if (!response.ok) throw new Error("Batch file not found");
+          return response.text();
+        })
+        .then(text => {
+          const fakeFile = new Blob([text], { type: "text/plain" });
+          const file = new File([fakeFile], fileName);
+          const event = { target: { files: [file] } };
+          handleFile(event);
+        })
+        .catch(err => {
+          showNotification("Failed to load batch file: " + err.message);
+        });
+    }
+
+    // Show controls temporarily (for mobile)
+    let controlTimeout;
+    function showControlsTemporarily() {
+      const controls = document.querySelector('.video-controls');
+      controls.style.transform = 'translateY(0%)';
+      clearTimeout(controlTimeout);
+      controlTimeout = setTimeout(() => {
+        if (!document.querySelector('.video-controls:hover')) {
+          controls.style.transform = 'translateY(100%)';
+        }
+      }, 3000); // hide after 3 seconds of inactivity
+    }
+
+    // Double-tap fullscreen with portrait lock
+    let lastTap = 0;
+    videoPlayer.addEventListener('touchend', (e) => {
+      const currentTime = new Date().getTime();
+      if (currentTime - lastTap < 300) {
+        toggleFullscreen();
+      }
+      lastTap = currentTime;
+    });
+
+    videoPlayer.addEventListener('dblclick', () => {
+      toggleFullscreen();
+    });
+  </script>
+
+<!-- HLS.js library for .m3u8 support -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  function loadVideoSource(src) {
+    const wrapper = document.getElementById("videoWrapper");
+    const ytBtn = document.getElementById("playOnYTButton");
+    if (src.includes("youtube.com") || src.includes("youtu.be")) {
+      const videoId = extractYouTubeId(src);
+      if (videoId && ytBtn) {
+        ytBtn.href = `https://www.youtube.com/watch?v=${videoId}`;
+        ytBtn.style.display = "inline-block";
+      }
+    } else {
+      if (ytBtn) ytBtn.style.display = "none";
+    }
+    // Remove YouTube iframe if exists
+    if (isYouTubePlayerActive && youtubePlayer) {
+      wrapper.innerHTML = `<video id="videoPlayer"></video>`;
+      isYouTubePlayerActive = false;
+      youtubePlayer = null;
+    }
+
+    const decrypted = decryptIfNeeded(src);
+    const isM3U8 = decrypted.endsWith('.m3u8');
+    const video = document.getElementById('videoPlayer');
+
+    if (isM3U8 && Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(decrypted);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = decrypted;
+      video.addEventListener('loadedmetadata', () => {
+        video.play();
+      });
+    } else {
+      video.src = decrypted;
+      video.load();
+      video.play().catch(() => {
+        showNotification("Click play button to start the video");
+      });
+    }
+  }
+</script>
+
+<!-- Updated Login Popup Styles -->
+<style>
+  #loginPopup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+  }
+  .login-box {
+    background: linear-gradient(to bottom right, #1c1c1c, #333);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    max-width: 350px;
+    width: 90%;
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .login-box h2 {
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8em;
+    color: #00ffff;
+  }
+  .login-box input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  .login-box input:focus {
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+  .login-box button {
+    padding: 12px 25px;
+    background: #00ffff;
+    border: none;
+    color: black;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  .login-box button:hover {
+    background: #00e6e6;
+    transform: translateY(-2px);
+  }
+  .login-box button:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+  .login-footer {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .login-footer a {
+    color: #ff7f50;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
+  .error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 10px;
+    min-height: 20px;
+  }
+  .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    display: none;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #00ffff;
+    animation: spin 1s ease-in-out infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  .shake {
+    animation: shake 0.4s ease-in-out;
+  }
+</style>
+
+<!-- Updated Login Popup HTML -->
+<div id="loginPopup">
+  <div class="login-box">
+    <div class="loading-overlay" id="loginLoading">
+      <div class="spinner"></div>
+    </div>
+    <h2>Welcome Back</h2>
+    <input type="text" id="loginUser" placeholder="Username / Email / Number" autocomplete="username">
+    <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
+    <label style="display:block; margin-top:10px; font-size:14px; text-align:left;">
+      <input type="checkbox" id="rememberMe"> Remember Me
+    </label>
+    <button id="loginButton" onclick="validateLogin()">Login</button>
+    <div class="error-message" id="loginError"></div>
+    <div class="login-footer">
+      <a href="https://www.instagram.com/vishalravan09/
+" target="_blank">Need Free Access Then Join?</a>
+    <br/>
+<a href="javascript:void(0)" onclick="openModal()" style="color:#00ffff;">
+📘 How To Use
+</a></div>
+  </div>
+</div>
+
+<!-- Updated Login Script -->
+
+<script>
+  const DEVICE_KEY = "deviceToken";
+  const USER_MAP_KEY = "userDeviceMap";
+  let expiryInterval = null;
+  let countdownStarted = false;
+
+  function getOrCreateDeviceId() {
+    let deviceId = localStorage.getItem(DEVICE_KEY);
+    if (!deviceId) {
+      deviceId = crypto.randomUUID();
+      localStorage.setItem(DEVICE_KEY, deviceId);
+    }
+    return deviceId;
+  }
+
+  function getCurrentTimestamp() {
+    return Date.now();
+  }
+
+  function getExpiryTimestamp(hours = 24) {
+    return getCurrentTimestamp() + (hours * 60 * 60 * 1000);
+  }
+
+  function formatExpiryDate(date) {
+    return date.toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    });
+  }
+
+  function startExpiryCountdown(expiryDate) {
+    if (countdownStarted) return;
+    countdownStarted = true;
+
+    clearInterval(expiryInterval);
+
+    let countdownDiv = document.getElementById('countdownTimer');
+    if (!countdownDiv) {
+        countdownDiv = document.createElement('div');
+        countdownDiv.id = 'countdownTimer';
+        countdownDiv.style.cssText = `
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: fit-content;
+            background: rgba(0,0,0,0.7);
+            color: #FFA726;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        `;
+        document.body.appendChild(countdownDiv);
+    }
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = expiryDate - now;
+
+        if (diff <= 0) {
+            clearInterval(expiryInterval);
+            countdownDiv.textContent = 'Premium access expired';
+            countdownDiv.style.background = 'rgba(211,47,47,0.7)';
+            showLoginMessage("❗ Your premium access has expired!", "error");
+            logout();
+            return;
+        }
+
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (diff < 24 * 60 * 60 * 1000) {
+            countdownDiv.innerHTML = `
+                <svg viewBox="0 0 24 24" width="18" height="18" style="vertical-align: middle; margin-right: 5px;">
+                    <path fill="#FFA726" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+                Premium expires in: ${hours}h ${minutes}m ${seconds}s
+            `;
+        }
+    }
+
+    updateCountdown();
+    expiryInterval = setInterval(updateCountdown, 1000);
+  }
+
+  function showLoginMessage(message, type = "error") {
+    const errorDisplay = document.getElementById('loginError');
+    
+    // Clear previous messages and animations
+    errorDisplay.innerHTML = '';
+    errorDisplay.className = 'login-message';
+    
+    // Create message container
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `login-message-content ${type}`;
+    
+    // Add appropriate icon based on message type
+    let icon = '';
+    switch(type) {
+      case 'success':
+        icon = '<svg class="message-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/></svg>';
+        break;
+      case 'warning':
+        icon = '<svg class="message-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg>';
+        break;
+      case 'premium':
+        icon = '<svg class="message-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4Z"/></svg>';
+        break;
+      default: // error
+        icon = '<svg class="message-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13 13H11V7H13M13 17H11V15H13M12 2C10.9 2 10 2.9 10 4C10 5.11 10.9 6 12 6C13.11 6 14 5.11 14 4C14 2.9 13.11 2 12 2M1 21H23L12 2L1 21Z"/></svg>';
+    }
+    
+    messageDiv.innerHTML = `${icon}<span class="message-text">${message}</span>`;
+    errorDisplay.appendChild(messageDiv);
+    
+    // Add entrance animation
+    messageDiv.style.animation = 'messageIn 0.4s ease-out forwards';
+    
+    // Apply input field effects
+    const userInput = document.getElementById('loginUser');
+    const passInput = document.getElementById('loginPass');
+    
+    if (type === 'error' || type === 'warning') {
+      userInput.classList.add('input-shake');
+      passInput.classList.add('input-shake');
+      
+      setTimeout(() => {
+        userInput.classList.remove('input-shake');
+        passInput.classList.remove('input-shake');
+      }, 500);
+    }
+    
+    // Add glow effect for success/premium
+    if (type === 'success' || type === 'premium') {
+      userInput.classList.add('input-glow');
+      passInput.classList.add('input-glow');
+      
+      setTimeout(() => {
+        userInput.classList.remove('input-glow');
+        passInput.classList.remove('input-glow');
+      }, 1500);
+    }
+  }
+
+  async function validateLogin() {
+    const userInput = document.getElementById('loginUser');
+    const passInput = document.getElementById('loginPass');
+    const loginButton = document.getElementById('loginButton');
+    const loadingOverlay = document.getElementById('loginLoading');
+
+    const user = userInput.value.trim();
+    const pass = passInput.value.trim();
+    const remember = document.getElementById('rememberMe').checked;
+
+    if (!user || !pass) {
+      showLoginMessage("Please enter both username and password", "error");
+      return;
+    }
+
+    loginButton.disabled = true;
+    loadingOverlay.style.display = 'flex';
+
+    try {
+      const pathsToTry = ['users.txt', 'Login/users.txt', '/Login/users.txt', './Login/users.txt'];
+      let response, found = false;
+      for (const path of pathsToTry) {
+        try {
+          response = await fetch(path);
+          if (response.ok) {
+            found = true;
+            break;
+          }
+        } catch (e) {}
+      }
+
+      if (!found) throw new Error('Could not locate users.txt file');
+      const text = await response.text();
+      const lines = text.split('\n');
+
+      let isValid = false;
+      let userBatches = [];
+      let expiryDate = null;
+      let isPremium = false;
+
+      for (const line of lines) {
+        const parts = line.split(':').map(i => i.trim());
+        if (parts.length < 3) continue;
+
+        const [id, pw, batchesStr] = parts;
+        if (id === user && pw === pass) {
+          if (parts.length >= 4 && parts[3]) {
+            expiryDate = new Date(parts[3]);
+            const now = new Date();
+            if (now > expiryDate) {
+              const formattedDate = formatExpiryDate(expiryDate);
+              throw new Error(`<span class="premium-expired">❌ Premium expired on ${formattedDate}</span><br><span class="premium-upsell">Please renew your premium to regain access!</span>`);
+            }
+            isPremium = true;
+            startExpiryCountdown(expiryDate);
+          }
+
+          userBatches = batchesStr.split(',').map(b => b.trim());
+          isValid = true;
+          break;
+        }
+      }
+
+      if (isValid) {
+        const storedDevices = JSON.parse(localStorage.getItem(USER_MAP_KEY) || "{}");
+        const currentDeviceId = getOrCreateDeviceId();
+        const now = getCurrentTimestamp();
+
+        if (storedDevices[user]) {
+          const existing = storedDevices[user];
+          if (existing.deviceId !== currentDeviceId && now < existing.expiresAt) {
+            throw new Error(`<span class="device-error">⚠️ This ID is already active on another device.</span><br>You can only be logged in on one device at a time.`);
+          }
+        }
+
+        storedDevices[user] = {
+          deviceId: currentDeviceId,
+          expiresAt: getExpiryTimestamp()
+        };
+        localStorage.setItem(USER_MAP_KEY, JSON.stringify(storedDevices));
+
+        currentUser = {
+          id: user,
+          pass: pass,
+          batches: userBatches,
+          expiry: expiryDate,
+          isPremium: isPremium
+        };
+
+        if (remember) {
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("currentUserInfo", JSON.stringify(currentUser));
+        } else {
+          sessionStorage.setItem("loggedIn", "true");
+        }
+
+        document.querySelector('.login-box').style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+          document.getElementById('loginPopup').style.display = 'none';
+          document.getElementById('logoutBtn').style.display = 'inline-block';
+          showLoginMessage(isPremium ? "🌟 Premium login successful! Welcome back." : "Login successful!", isPremium ? "premium" : "success");
+        }, 300);
+      } else {
+        throw new Error('Invalid username or password');
+      }
+    } catch (err) {
+      showLoginMessage(err.message || "Login failed. Please try again.", "error");
+    } finally {
+      loadingOverlay.style.display = 'none';
+      loginButton.disabled = false;
+    }
+  }
+
+  function logout() {
+    clearInterval(expiryInterval);
+    countdownStarted = false;
+    const timer = document.getElementById('countdownTimer');
+    if (timer) timer.remove();
+
+    document.getElementById('loginPopup').style.display = 'flex';
+    document.querySelector('.login-box').style.animation = 'fadeIn 0.3s ease';
+    sessionStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("currentUserInfo");
+    currentUser = null;
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginError').textContent = '';
+    document.getElementById('loginError').className = 'login-message';
+    document.getElementById('logoutBtn').style.display = 'none';
+
+    setTimeout(() => {
+      document.getElementById('loginUser').focus();
+    }, 300);
+  }
+
+  function checkLoginStatus() {
+    const isLogged = sessionStorage.getItem("loggedIn") === "true" || localStorage.getItem("loggedIn") === "true";
+    if (isLogged) {
+      document.getElementById('loginPopup').style.display = 'none';
+      document.getElementById('logoutBtn').style.display = 'inline-block';
+
+      const storedUser = localStorage.getItem("currentUserInfo");
+      if (storedUser) {
+        try {
+          window.currentUser = JSON.parse(storedUser);
+          if (currentUser.expiry) {
+            const expiryDate = new Date(currentUser.expiry);
+            if (new Date() < expiryDate) {
+              startExpiryCountdown(expiryDate);
+              showLoginMessage("Welcome back! Your premium access is active.", "premium");
+            } else {
+              showLoginMessage("❗ Your premium access has expired!", "error");
+              logout();
+            }
+          } else {
+            showLoginMessage("Welcome back!", "success");
+          }
+        } catch (e) {
+          console.error("Failed to restore currentUser:", e);
+        }
+      }
+    }
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .login-message {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+  
+    .login-message-content {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      max-width: 90%;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  
+    .message-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+  
+    .message-text {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+  
+    .login-message-content.error {
+      background-color: #FFF0F0;
+      color: #D32F2F;
+      border-left: 4px solid #D32F2F;
+    }
+  
+    .login-message-content.warning {
+      background-color: #FFF4E5;
+      color: #ED6C02;
+      border-left: 4px solid #ED6C02;
+    }
+  
+    .login-message-content.success {
+      background-color: #F0FFF4;
+      color: #2E7D32;
+      border-left: 4px solid #2E7D32;
+    }
+  
+    .login-message-content.premium {
+      background-color: #F0F7FF;
+      color: #1565C0;
+      border-left: 4px solid #1565C0;
+    }
+  
+    .premium-expired {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+  
+    .premium-upsell {
+      color: #1976d2;
+      font-weight: bold;
+    }
+  
+    .device-error {
+      color: #ff6f00;
+    }
+  
+    @keyframes messageIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .input-shake {
+      animation: shake 0.5s ease-in-out;
+      border-color: #FF7043 !important;
+    }
+  
+    .input-glow {
+      animation: glow 1.5s ease-in-out;
+    }
+  
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+  
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(66, 165, 245, 0); }
+      50% { box-shadow: 0 0 15px rgba(66, 165, 245, 0.5); }
+    }
+
+    #loginLoading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      border-radius: 8px;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-20px); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Call this on page load
+  window.addEventListener('load', checkLoginStatus);
+</script>
+  
+<!-- HOW TO USE MODAL -->
+<div class="modal" id="howToModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+
+    <div class="step">
+      <div class="step-title">🔐 Step 1: Login करें अपने ID और पासवर्ड से</div>
+      <img src="https://i.ibb.co/TyXdz5D/Screenshot-20250831-072108.png" alt="Step 1">
+    </div>
+    <div class="step">
+      <div class="step-title">📂 it's me😜</div>
+      <img src="https://i.ibb.co/TxXrS0Xs/Screenshot-20250901-153211.jpg" alt="Step 2">
+    </div>
+    <div class="step">
+      <div class="step-title">📚 MY MOM & BHAIYA💓</div>
+      <img src="https://i.ibb.co/TxJKTxVW/Screenshot-20250901-153155.jpg" alt="Step 3">
+    </div>
+    <div class="step">
+      <div class="step-title">📌 VISHAL🚨RAVAN</div>
+      <img src="https://i.ibb.co/bMFQV49Z/Screenshot-20250901-153708.jpg" alt="Step 4">
+    </div>
+    <div class="step">
+      <div class="step-title">💓😜🚨</div>
+      <img src="https://i.ibb.co/xtYt636q/IMG-20250831-WA0002.jpg" alt="Step 5">
+    </div>
+    <hr>
+    <div class="step">
+      <div class="step-title">🌟 अन्य सुविधाएं (Other Features)</div>
+      <ul>
+        <li><b>🔍 Search by topics</b></li>
+        <li><b>▶️ Play a single link</b></li>
+        <li><b>🎚️ Swipe video screen for volume & brightness</b></li>
+      </ul>
+      <img src="https://i.ibb.co/ZvWjZ4j/Screenshot-20250901-154037.jpg" alt="Features">
+    <br/>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("howToModal").style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById("howToModal").style.display = "none";
+  }
+  window.onclick = function(event) {
+    let modal = document.getElementById("howToModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+  </html>
