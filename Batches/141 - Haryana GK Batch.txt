@@ -1,0 +1,94 @@
+Haryana GK-1:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1327034-1729682555/hls-2d0424/720p/master-2636943.2039564787.m3u8
+Haryana GK-2:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1331169-1729761758/hls-4bdde3/720p/master-2031710.0879138561.m3u8
+Haryana GK Day-3:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1336247-1729845465/hls-f3c205/720p/master-9079449.049807448.m3u8
+Haryana GK Day-4:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1340722-1729930960/hls-c9b596/720p/master-5247411.188862048.m3u8
+Haryana GK Lecture-5:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1346263-1730112039/hls-5a2ac9/720p/master-3265497.101340773.m3u8
+Haryana GK Lecture-6:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1348556-1730198638/hls-abce8f/720p/master-9327881.496075768.m3u8
+Haryana GK day-7:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1350567-1730277116/hls-feb3bd/720p/master-2116540.104907718.m3u8
+Haryana GK Day-8:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1351839-1730448994/hls-d7cc14/720p/master-3330998.4084951873.m3u8
+Haryana GK Day-9:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1352908-1730543672/hls-41c6dd/720p/master-5228299.662727185.m3u8
+Haryana GK Day-10:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1353930-1730624503/hls-455120/720p/master-1068744.2337382836.m3u8
+Haryana GK day-11:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1355563-1730713607/hls-ffd1ee/720p/master-7002818.525145736.m3u8
+Haryana GK Day-12:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1362190-1730881723/hls-8a69e7/720p/master-6905430.043823812.m3u8
+Haryana GK-13:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1366436-1730991338/hls-415b7f/720p/master-3664912.1380020212.m3u8
+Haryana GK Day-14:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1369222-1731056862/hls-959c7d/720p/master-3964289.1137799486.m3u8
+Haryana GK Lecture-15:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1373039-1731143442/hls-4d099f/720p/master-2712094.4888960617.m3u8
+Haryana GK Lecture-16:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1377780-1731315699/hls-933e13/720p/master-5617081.338598826.m3u8
+Haryana GK-17:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1381501-1731400659/hls-2c7dd4/720p/master-5131751.971293299.m3u8
+Haryana gk day-18:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1385721-1731492466/hls-8c4c42/720p/master-8916239.69533894.m3u8
+Haryana GK-19:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1389762-1731574719/hls-2c8459/720p/master-17738.84106125223.m3u8
+Haryana GK-20:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1393655-1731658959/hls-e84a2d/720p/master-8571058.086109335.m3u8
+Haryana GK-21:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1397759-1731747522/hls-ebfb44/720p/master-3736465.411789132.m3u8
+Haryana GK Part-22:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1402981-1731918344/hls-3b6ac8/720p/master-154125.29755302495.m3u8
+Haryana GK Day-23:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1407214-1732004563/hls-d8f523/720p/master-4442966.870600529.m3u8
+Haryana GK-24:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1411418-1732093315/hls-865f8e/720p/master-5489005.810365404.m3u8
+Haryana GK-25:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1415454-1732179163/hls-5a560a/720p/master-1192267.1985876798.m3u8
+Haryana GK-26:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1419217-1732267641/hls-ff4f37/720p/master-3541567.450048968.m3u8
+Haryana GK Day-27:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1423153-1732351685/hls-9ffbcb/720p/master-1938222.2648271585.m3u8
+Haryana GK-28:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1427603-1732523756/hls-be0733/720p/master-9138235.859395048.m3u8
+Haryana GK-29:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1431618-1732609807/hls-44587f/720p/master-13579.774424272717.m3u8
+Haryana GK Day-30:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1436589-1732705380/hls-5ccf68/720p/master-2709898.1780276634.m3u8
+Haryana GK day-31:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1439857-1732783511/hls-53083b/720p/master-8959341.808190605.m3u8
+Haryana GK-32:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1443691-1732869176/hls-329c3b/720p/master-7207451.950856445.m3u8
+Haryana GK-33:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1447488-1732955774/hls-ebd51f/720p/master-6044598.621270128.m3u8
+Haryana GK Lecture-34:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1452810-1733132351/hls-37d62b/720p/master-3677849.4264645544.m3u8
+Haryana GK-35:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1456372-1733214256/hls-0c7c0f/720p/master-719.2316827286937.m3u8
+Haryana GK Day-36:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1460288-1733300473/hls-29e02f/720p/master-6587261.985463735.m3u8
+Haryana GK Day-37:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1464551-1733388136/hls-4829e4/720p/master-7337965.229220085.m3u8
+Haryana GK Day-38:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1468716-1733473275/hls-f3a403/720p/master-1651911.7054723355.m3u8
+Haryana GK Day-39:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1472297-1733558951/hls-97a967/720p/master-8723589.33887477.m3u8
+Haryana GK day-40:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1477244-1733732483/hls-ffcc63/720p/master-1248839.42799755.m3u8
+Haryana GK Day-41:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1481333-1733818888/hls-9edcfa/720p/master-6055186.061810602.m3u8
+Haryana GK-42:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1486142-1733907260/hls-74bf61/720p/master-894579.6834763819.m3u8
+Haryana GK day-43:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1489969-1733992048/hls-c4095f/720p/master-6598277.38793294.m3u8
+Haryana GK-44:https://appx-transcoded-videos-mcdn.akamai.net.in/videos/jobstarget-data/1494848-1734092657/hls-c0d7e2/720p/master-641782.7150464017.m3u8
+Haryana GK Day-45:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1503263-1734337601/hls-223f9c/720p/master-672243.7184510222.m3u8
+Haryana GK Day-46:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1507123-1734422214/hls-aaa412/720p/master-5483891.616950432.m3u8
+Haryana GK Day-47:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1512181-1734519533/hls-218803/720p/master-5803789.644618032.m3u8
+Haryana GK Day-48:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1517442-1734605455/hls-c99817/720p/master-7874194.327781237.m3u8
+Haryana GK Day-49:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1521129-1734683227/hls-9a8bad/720p/master-5655613.424203118.m3u8
+Haryana GK Day-50:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1524992-1734769250/hls-65c600/720p/master-1277878.850158285.m3u8
+Haryana GK Day-51:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/1534565-1735028088/hls-1babbf/720p/master-2079536.907835191.m3u8
+Kaithal GK:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/354560-1748417802/hls-d4297a/720p/master-7861546.368098902.m3u8
+Kaithal GK:https://appx-content-v2.classx.co.in/subject/2025-06-01-0.8314404602759766.pdf*C4BMQbOCgI9eJiR0
+Panipat District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/355784-1748503545/hls-1c8c8e/720p/master-4244989.648049049.m3u8
+Panipat District:https://appx-content-v2.classx.co.in/subject/2025-06-01-0.7415668122160483.pdf*731ESGEK96CeYvny
+Yamuna nagar District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/357004-1748591030/hls-4075fd/720p/master-4953706.397860014.m3u8
+Yamuna nagar District:https://appx-content-v2.classx.co.in/subject/2025-06-01-0.136035113433157.pdf*fNoUFPce9TfOh0pg
+Rewari District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/358115-1748676351/hls-1b73a6/720p/master-1098246.6371471577.m3u8
+Ambala District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/359430-1748848785/hls-c011be/720p/master-9941338.984783348.m3u8
+Ambala District:https://appx-content-v2.classx.co.in/subject/2025-06-07-0.28710063274770115.pdf*KtPqt5QrxuQV4kRE
+Panchkula District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/360593-1748935545/hls-82bb67/720p/master-6565282.4089358505.m3u8
+Panchkula District:https://appx-content-v2.classx.co.in/subject/2025-06-07-0.5943091403244153.pdf*QcXZ9PDpD60A0C1T
+Fatehabad District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/361925-1749022668/hls-655321/720p/master-1855693.37843307.m3u8
+Fatehabad District:https://appx-content-v2.classx.co.in/subject/2025-06-07-0.6148951792832995.pdf*1kkBV7H0K9ldArGD
+Mahendargarh District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/363242-1749109252/hls-7246ce/720p/master-3758631.393908416.m3u8
+Mahendargarh District:https://appx-content-v2.classx.co.in/subject/2025-06-07-0.30018457096632944.pdf*lylbJlJMtRPYRhYi
+Karnal District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/364538-1749194929/hls-9aa736/720p/master-1118538.4716668122.m3u8
+Karnal District:https://appx-content-v2.classx.co.in/subject/2025-06-07-0.18492516714081342.pdf*7EfH1unFUKtS8Ih7
+Faridabad District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/365710-1749280787/hls-69d6e0/720p/master-3777358.9313974143.m3u8
+Faridabad District:https://appx-content-v2.classx.co.in/subject/2025-06-09-0.6727835469835679.pdf*5DQlEGLfX6BwLcEY
+Jind District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/367106-1749453769/hls-91aefe/720p/master-9514204.750086393.m3u8
+Palwal District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/369665-1749625666/hls-a28c11/720p/master-1644968.9544629885.m3u8
+Palwal District:https://appx-content-v2.classx.co.in/subject/2025-06-16-0.9371290259823049.pdf*wCZCXmgpRcVDuIHy
+Mewat District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/371284-1749712071/hls-1dafb0/720p/master-5621219.3070228.m3u8
+Mewat District:https://appx-content-v2.classx.co.in/subject/2025-06-16-0.93983730494253.pdf*PTaj6RohTHtLzR1b
+Rohtak District Part-1:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/373133-1749798830/hls-7795e8/720p/master-4153892.2717877245.m3u8
+Rohtak District Part-1:https://appx-content-v2.classx.co.in/subject/2025-06-16-0.043944862262798146.pdf*CnQGBJouUYLDf30z
+Rohtak Part-2:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/374386-1749884511/hls-0d41f9/720p/master-9894748.989074234.m3u8
+Sirsa District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/375865-1750059110/hls-36a85d/720p/master-4851571.327258932.m3u8
+Sirsa District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.5972484759643314.pdf*jU7Ys6pbNN6hNkP6
+Charkhi Dadri District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/377009-1750143712/hls-989763/720p/master-4627263.499626309.m3u8
+Charkhi Dadri District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.03146046635956978.pdf*8A9z02vge2raJsEE
+Jhajjar District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/378208-1750229932/hls-f5cfdb/720p/master-7794194.224531894.m3u8
+Jhajjar District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.5400865768750551.pdf*L4k2VMb8d3dinWKf
+Sonipat District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/379608-1750317230/hls-a6386b/720p/master-7347764.883258307.m3u8
+Sonipat District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.0332135302489297.pdf*b6H3Wyv3mrPt8kUA
+Bhiwani District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/381135-1750403813/hls-899402/720p/master-9325486.501007842.m3u8
+Bhiwani District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.14381946943845725.pdf*WndhrwivAYkPJpWO
+Kurukshetra District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/382408-1750490753/hls-1f9917/720p/master-9729144.187442478.m3u8
+Kurukshetra District:https://appx-content-v2.classx.co.in/subject/2025-06-21-0.05446234296366914.pdf*8Hu3chZn46RABlyc
+Gurugram District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/384000-1750663369/hls-4375a9/720p/master-7705346.975824043.m3u8
+Gurugram District:https://appx-content-v2.classx.co.in/subject/encrypted_2025-06-27-0.23126194528722255.pdf*dfadc6Nfjp8goNAx
+Hisar District:https://transcoded-videos-v2.classx.co.in/videos/jobstarget-data/385504-1750749945/hls-50652a/720p/master-4468412.857337174.m3u8
+Hisar District:https://appx-content-v2.classx.co.in/subject/encrypted_2025-06-27-0.23442009125330832.pdf*b6nQ31XstboPcsql
